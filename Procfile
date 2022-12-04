@@ -1,1 +1,1 @@
-web: gunicorn project-tranwell-media.wsgi
+web: gunicorn tranwellmedia.wsgi
