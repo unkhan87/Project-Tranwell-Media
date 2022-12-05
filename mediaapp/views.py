@@ -9,7 +9,16 @@ class Home(generic.TemplateView):
     '''
     Displays Home Page
     '''
-    template_name = 'index.html'
+    template_name = "index.html"
+
+    def get(self, request, *args, **kwargs):
+        return render(
+            request,
+            "index.html",
+            {
+                "home_active": "custom-red",
+            }
+        )
 
 class BookAppointment(CreateView):
     '''
