@@ -26,6 +26,16 @@ class BookAppointment(CreateView):
     to the manage my bookings page where the request
     will be shown as pending approval
     '''
+    template_name = 'appointments.html'
+    from_class = BookAppointmentForm
+
+    def form_valid(self, form):
+        form.instance.client = self.request.user
+        form.save()
+        messages.success(
+            self.request,
+            'Your request has been submitted and is awaiting for approval')
+        return HttpResponseRedirect('/appointments_manage/')
 
 class ManageAppointments(generic.ListView):
     '''
