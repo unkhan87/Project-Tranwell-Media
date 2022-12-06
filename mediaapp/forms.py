@@ -4,7 +4,7 @@ Appointment Booking Form
 import datetime
 from django import forms
 from .models import BookAppointmentModel
-from bootstrap_datepicker_plus.widgets import DatePickerInput
+# from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 # for users to get the current date
 CURRENT_DATE = str(datetime.date.today())
@@ -18,9 +18,11 @@ class AppointmentForm(forms.ModelForm):
         labels = {
             'appointment_date': 'Appointment Date',
             'appointment_time' : 'Appointment Time',
-            'appointment_comments' : 'Message'
+            'appointment_comments' : 'Message',
+            'company_name' : 'Company Name'
         }
 
+        '''
         widgets = {
             'appointment_date': DatePickerInput(
                  options={
@@ -29,13 +31,9 @@ class AppointmentForm(forms.ModelForm):
                     "showClear": True,
                     "showTodayButton": True,
                     'minDate': CURRENT_DATE,
-                }
-            ),
-            'appointment_comments': forms.Textarea(attrs={'rows': 6, 'cols': 20,
-                                                  'placeholder':
-                                                  'style': 'resize:none;'},
-                                                ),
-                                                    
                     }
+            )
+        }
+        '''
 
     

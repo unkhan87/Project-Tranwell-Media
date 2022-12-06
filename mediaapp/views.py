@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views import generic
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import BookAppointmentModel
+from .forms import AppointmentForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -27,7 +29,8 @@ class BookAppointment(CreateView):
     will be shown as pending approval
     '''
     template_name = 'appointments.html'
-    from_class = BookAppointmentForm
+    form_class = AppointmentForm
+    model = BookAppointmentModel
 
     def form_valid(self, form):
         form.instance.client = self.request.user

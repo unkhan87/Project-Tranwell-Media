@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 STATUS = ((0, "Pending"), (1, "Approved"))
 
@@ -20,8 +21,8 @@ class BookAppointmentModel(models.Model):
     name = models.CharField(max_length=40)
     company_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=150)
-    appointment_date = models.DateField(auto_now_add=True)
-    appointment_time = models.TimeField(auto_now_add=True)
+    appointment_date = models.DateTimeField(default=timezone.now)
+    appointment_time = models.DateTimeField(default=timezone.now)
     appointment_comments = models.TextField(max_length=200, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
