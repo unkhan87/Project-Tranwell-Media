@@ -9,6 +9,9 @@ from .models import BookAppointmentModel
 # for users to get the current date
 CURRENT_DATE = str(datetime.date.today())
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = BookAppointmentModel
@@ -22,18 +25,16 @@ class AppointmentForm(forms.ModelForm):
             'company_name' : 'Company Name'
         }
 
-        '''
+        
         widgets = {
-            'appointment_date': DatePickerInput(
-                 options={
-                    "format": "DD/MM/YYYY",
-                    "showClose": True,
-                    "showClear": True,
-                    "showTodayButton": True,
-                    'minDate': CURRENT_DATE,
-                    }
-            )
+            'title': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'}),
+            'company_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'appointment_date': forms.TextInput(attrs={'class': 'form-control'}),
+            'appointment_time': forms.TextInput(attrs={'class': 'form-control'}),
+            'appointment_comments': forms.Textarea(attrs={'class': 'form-control'})
         }
-        '''
+        
 
     

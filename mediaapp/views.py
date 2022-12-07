@@ -40,11 +40,25 @@ class BookAppointment(CreateView):
             'Your request has been submitted and is awaiting for approval')
         return HttpResponseRedirect('/appointments_manage/')
 
+'''
 class ManageAppointments(generic.ListView):
-    '''
+    
     Get the data from the database and displays it
     to the user.
-    '''
+    
+    model = BookAppointmentModel
+    template_name = manage_appointments
+    login_required = True
+    paginate_by = 6
+
+    def get_context_data(self,*args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        appointments = BookAppointmentModel.objects.all()
+        context.update({
+            "appointments":appointments,
+        })
+        return context
+'''
 
 class DeleteAppoinment(DeleteView):
     '''
