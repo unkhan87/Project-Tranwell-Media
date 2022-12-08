@@ -39,8 +39,8 @@
             <p class="card-text">
                 Appointment Date: <strong>{{ appointment.appointment_date }}</strong>
             </p>
-            <a href="#" role="button"><button class="btn btn-info">Edit</a>
-            <a href="{% url 'delete_appointment' pk=appointment.id %}" class="btn btn-danger">Cancel</a>   
+            <a href="{% url 'update_appointment' pk=appointment.id %}" class="btn btn-sm btn-warning">Edit</a>
+            <a href="{% url 'delete_appointment' pk=appointment.id %}" class="btn btn-sm btn-danger">Cancel</a>   
         </div>
     </div>
     

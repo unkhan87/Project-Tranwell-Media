@@ -75,9 +75,14 @@ class DeleteAppointment(DeleteView):
 
 
     
-class EditAppointment(UpdateView):
+class AppointmentUpdate(UpdateView):
     '''
     allow users to make changes to the appointment,
     once completed the user get redirected to the 
     manage bookings page
     '''
+    model = BookAppointmentModel
+    template_name = 'update_appointments.html'
+    login_required = True
+    fields = ['name', 'appointment_date', 'appointment_time',]
+    success_url = 'manage_appointment'

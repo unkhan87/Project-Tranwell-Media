@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center mt-5">
+        <div class="col-12">
+            <h2> Update Booking Details </h2>
+        </div>
+    </div>
+   
+    
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'manage_appointment' %}" class="btn btn-sm btn-warning">Update</a>
+    </form>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
