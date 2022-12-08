@@ -53,6 +53,24 @@
       </div>
     </nav>
 
+    <!-- borrowed for the blog walkthrough project display messages -->
+    <div class="container">
+      <div class="row">
+          <div class="col-12 col-md-8 offset-md-2 hide-form-message">
+              {% for message in messages %}
+              <div class="message">
+                  {% if message %}
+                  <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                      {{ message | safe}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endif %}
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+
       <main class="flex-shrink-0 main-bg">
         {% block content %}
         <!-- Content Goes here -->
@@ -72,7 +90,13 @@
           </div>
       </div>
   </footer>
-
+  <script>
+    setTimeout(function () {
+      let messages = document.getElementById("msg");
+      let alert = new bootstrap.Alert(messages);
+      alert.close();
+    }, 3000);
+  </script>
 
 <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

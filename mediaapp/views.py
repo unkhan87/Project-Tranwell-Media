@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import BookAppointmentModel
 from .forms import AppointmentForm
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 # Create your views here.
 
@@ -38,16 +39,12 @@ class BookAppointment(CreateView):
         messages.success(
             self.request,
             'Your request has been submitted and is awaiting for approval')
-        return HttpResponseRedirect('/appointments_manage/')
+        return HttpResponseRedirect('/manage_appointment/')
 
-'''
+
 class ManageAppointments(generic.ListView):
-    
-    Get the data from the database and displays it
-    to the user.
-    
     model = BookAppointmentModel
-    template_name = manage_appointments
+    template_name = 'manage_appointments.html'
     login_required = True
     paginate_by = 6
 
@@ -58,7 +55,11 @@ class ManageAppointments(generic.ListView):
             "appointments":appointments,
         })
         return context
-'''
+    
+    def get_queryset(self):
+        return BookAppointmentModel.objects.filter(
+            client=self.request.user).order_by("created_date")
+
 
 class DeleteAppoinment(DeleteView):
     '''

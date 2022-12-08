@@ -1,3 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="container">
+
+    <!--manage appointments page-->
+    <div class="row">
+        <div class="col12 text-center">
+            <h2 class="h2">Your Appointments</h2>
+        </div>
+    </div>
+
+    <!--if user have got no appointment booked-->
+    {% if not appointments %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <p><strong>Currently, you do not have any appointments scheduled</strong></p>
+            <a href="{% url 'appointments' %}" role="button"><button class="btn btn-info">Book Appointment</button></a>
+        </div>
+    </div>
+
+    <!--display users appointment-->
+
+    {% for appointment in appointments %}
+    <div class="row py-5">
+        <div class="col12">
+            <div class="card bg-dark">
+                {% if appointment.status == 1 %}
+                <h3 class="card-title">
+                    <i class="fa-soliod fa-square-check text-success">Approved</i>
+                </h3>
+                <!-- if the appointment status is pending -->
+                {% else %}
+                <h3 class="card-title">
+                    <i class="fa-solid fa-hourglass-end text-warning"></i> Pending
+                </h3>
+
+                <hr>
+                <p>Name:
+                    <strong>{{ appointment.name }}</strong>
+                </p>
+                <p>Appointment Date:
+                    <strong>{{ appointment.appointment_date }}</strong>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
