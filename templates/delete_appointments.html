@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="confirm-message text-center">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to cancel the appointment <strong class="fst-italic">{{ object }}</strong>?</p>
+                <p> This action can't be undone </p>
+                <a href="{% url 'manage_appointment' %}"><button type="button" class="btn btn-danger">Confirm</button></a>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

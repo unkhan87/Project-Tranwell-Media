@@ -61,12 +61,20 @@ class ManageAppointments(generic.ListView):
             client=self.request.user).order_by("created_date")
 
 
-class DeleteAppoinment(DeleteView):
+class DeleteAppointment(DeleteView):
     '''
     enable users to delete already booked appointment,
     redirects users to manage booking page
     '''
+    model = BookAppointmentModel
+    template_name = 'delete_appointments.html'
+    login_required = True
+    success_url = 'manage_appointment'
 
+    
+
+
+    
 class EditAppointment(UpdateView):
     '''
     allow users to make changes to the appointment,

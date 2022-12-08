@@ -40,7 +40,7 @@
                 Appointment Date: <strong>{{ appointment.appointment_date }}</strong>
             </p>
             <a href="#" role="button"><button class="btn btn-info">Edit</a>
-            <a href="#" role="button"><button class="btn btn-info">Cancel</button></a>       
+            <a href="{% url 'delete_appointment' pk=appointment.id %}" class="btn btn-danger">Cancel</a>   
         </div>
     </div>
     
