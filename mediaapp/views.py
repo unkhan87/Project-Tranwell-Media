@@ -39,7 +39,7 @@ class BookAppointment(CreateView):
         messages.success(
             self.request,
             'Your request has been submitted and is awaiting for approval')
-        return HttpResponseRedirect('/manage_appointment/')
+        return HttpResponseRedirect('/manage_appointments/')
 
 
 class ManageAppointments(generic.ListView):
