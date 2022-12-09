@@ -41,6 +41,16 @@ class BookAppointment(CreateView):
             self.request,
             'Your request has been submitted and is awaiting for approval')
         return HttpResponseRedirect('/manage_appointments/')
+    
+    '''
+    For not to double book
+    '''
+    def save(self, *args, **kwargs):
+        super(BookAppointmentModel, self).save(*args, **kwargs)
+        messages.danger(
+            self.request,
+            'We apologise, this time slot is fully booked. Please choose a different time')
+        return HttpResponseRedirect('/manage_appointments/')
 
 
 class ManageAppointments(generic.ListView):
