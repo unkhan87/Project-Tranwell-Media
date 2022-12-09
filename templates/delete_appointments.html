@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 <p>Are you sure you want to cancel the appointment <strong class="fst-italic">{{ object }}</strong>?</p>
                 <p> This action can't be undone </p>
-                <a href="{% url 'manage_appointment' %}"><button type="button" class="btn btn-danger">Confirm</button></a>
+                <button class="btn btn-sm btn-primary m-10" type="submit"><strong>Confirm</strong></button>
             </form>
             </div>
         </div>

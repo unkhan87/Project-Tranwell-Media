@@ -70,9 +70,9 @@ class DeleteAppointment(DeleteView):
     model = BookAppointmentModel
     template_name = 'delete_appointments.html'
     login_required = True
-    success_url = 'manage_appointment'
+    success_url = reverse_lazy('manage_appointment')
     form_class = AppointmentForm
-  
+    
     
 class AppointmentUpdate(UpdateView):
     '''

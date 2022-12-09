@@ -10,14 +10,16 @@
     </div>
    
     
-    <form method="POST" class="text-center">
+    <table>
+    <form method="POST" class="text-center m-5">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-sm btn-warning" type="submit">Update</button>
-    </form>
+        {{ form.as_table }}
+    </table>
+        <button class="btn btn-sm btn-primary m-10" type="submit"><strong>Update</strong></button>
+    
+    
 </div>
-</div>
-</div>
+
 
 
 {% endblock %}

@@ -23,11 +23,12 @@
     <!--if user have got appointment scheduled-->
     {% else %}
     {% for appointment in appointments %}
-    <div class="card" style="width: 18rem;">
+    <div class="card row text-center col-12 col-md-4 col-lg-4 m-5">
         <div class="card-body">
             {% if appointment.status == 0 %}
             <h3 class="card-title"> 
                 <i class="fa-solid fa-hourglass-end text-warning"></i> Approval Pending</h3>
+            <hr>
             {% else %}
             <h3 class="card-title"> 
                 <i class="fa-solid fa-square-check text-success"></i> Appointment Approved</h3>
