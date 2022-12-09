@@ -13,7 +13,7 @@
     <form method="POST" class="text-center">
         {% csrf_token %}
         {{ form.as_p }}
-        <a href="{% url 'manage_appointment' %}" class="btn btn-sm btn-warning">Update</a>
+        <button class="btn btn-sm btn-warning" type="submit">Update</button>
     </form>
 </div>
 </div>

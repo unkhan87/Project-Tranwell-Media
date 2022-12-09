@@ -5,6 +5,7 @@ from .models import BookAppointmentModel
 from .forms import AppointmentForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -70,10 +71,8 @@ class DeleteAppointment(DeleteView):
     template_name = 'delete_appointments.html'
     login_required = True
     success_url = 'manage_appointment'
-
-    
-
-
+    form_class = AppointmentForm
+  
     
 class AppointmentUpdate(UpdateView):
     '''
@@ -84,5 +83,8 @@ class AppointmentUpdate(UpdateView):
     model = BookAppointmentModel
     template_name = 'update_appointments.html'
     login_required = True
-    fields = ['name', 'appointment_date', 'appointment_time',]
-    success_url = 'manage_appointment'
+    fields = ['title', 'name', 'company_name', 'email', 'appointment_date', 'appointment_time',]
+    success_url = reverse_lazy('manage_appointment')
+
+    # def form_valid(self, form):
+    #     return super().form_valid(form)
