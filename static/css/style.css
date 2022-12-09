@@ -4,6 +4,10 @@
     margin-bottom: -10px;
 }
 
+.nav-custom {
+  color: azure;
+}
+
 .masthead {
     background-image: url(/static/assets/main_image.jpg);
     background-size: cover;
