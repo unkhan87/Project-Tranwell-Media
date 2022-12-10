@@ -8,6 +8,13 @@
   color: azure;
 }
 
+.services-hr {
+  height: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: darkorange;
+}
+
 .masthead {
     background-image: url(/static/assets/main_image.jpg);
     background-size: cover;

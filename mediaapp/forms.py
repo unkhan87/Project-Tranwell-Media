@@ -4,8 +4,8 @@ Appointment Booking Form
 import datetime
 from django import forms
 from .models import BookAppointmentModel
-#from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
-#from .widgets import DatePickerInput, TimePickerInput, DateTimePickerInput
+# from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
+# from .widgets import DatePickerInput, TimePickerInput, DateTimePickerInput
 
 # for users to get the current date
 CURRENT_DATE = str(datetime.date.today())

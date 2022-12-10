@@ -4,6 +4,7 @@ from django.utils import timezone
 
 STATUS = ((0, "Pending"), (1, "Approved"))
 
+
 class BookAppointmentModel(models.Model):
 
     '''
@@ -33,3 +34,4 @@ class BookAppointmentModel(models.Model):
     
     def __str__(self):
         return str(self.name)
+
